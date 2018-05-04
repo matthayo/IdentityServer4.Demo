@@ -1,11 +1,11 @@
-
 using System.Collections.Generic;
-using IdentityServer4.EntityFramework.Entities;
+using IdentityServer4.Models;
 
 namespace IdentityServer4.Demo.AppCode
 {
    public class Config
    {
+       //Defining the API
        public static IEnumerable<ApiResource> GetApiResources()
        {
            return new List<ApiResource>
@@ -13,7 +13,9 @@ namespace IdentityServer4.Demo.AppCode
                new ApiResource("api1", "My API")
            };
        }
-        public static IEnumerable<Client> GetClients()
+       
+       //Defining the client
+       public static IEnumerable<Client> GetClients()
         {
             return new List<Client> 
             {
@@ -22,7 +24,7 @@ namespace IdentityServer4.Demo.AppCode
                     ClientId = "client",
 
                     // no interactive user, use the clientid/secret for authentication
-                    AllowedGrantTypes = GrantType.CleintCredentials,
+                    AllowedGrantTypes = GrantTypes.ClientCredentials,
 
                     // secret for authentication
                     ClientSecrets = 
@@ -30,7 +32,7 @@ namespace IdentityServer4.Demo.AppCode
                         new Secret("secret".Sha256())
                     },
                     // scopes that client has access to
-                    AllowedScope = {"api1"}
+                    AllowedScopes = {"api1"}
                 }
             };
         }

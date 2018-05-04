@@ -171,8 +171,10 @@ PublishScripts/
 # Uncomment if necessary however generally it will be regenerated when needed
 #!**/packages/repositories.config
 # NuGet v3's project.json files produces more ignorable files
+*.nuget.cache
 *.nuget.props
 *.nuget.targets
+*.nuget.g.props
 
 # Microsoft Azure Build Output
 csx/
